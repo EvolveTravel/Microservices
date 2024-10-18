@@ -37,3 +37,9 @@ spring:
             lb://orders
           predicates:
             - Path=/api/v1/orders/**
+        - id:
+            trip
+          uri:
+            lb://trip
+          predicates:
+            - Path=/api/v1/trips/**

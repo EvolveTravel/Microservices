@@ -31,3 +31,9 @@ spring:
             lb://user
           predicates:
             - Path=/api/v1/users/**
+        - id:
+            order
+          uri:
+            lb://order
+          predicates:
+            - Path=/api/v1/orders/**

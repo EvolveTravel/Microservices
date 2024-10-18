@@ -32,8 +32,8 @@ spring:
           predicates:
             - Path=/api/v1/users/**
         - id:
-            order
+            orders
           uri:
-            lb://order
+            lb://orders
           predicates:
             - Path=/api/v1/orders/**

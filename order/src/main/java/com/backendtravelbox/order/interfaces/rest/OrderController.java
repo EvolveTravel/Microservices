@@ -21,8 +21,8 @@ import java.util.List;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping(value = "/api/v1/orders", produces = APPLICATION_JSON_VALUE)
-@Tag(name = "Order", description = "Order Management Endpoints")
+@RequestMapping(value = "api/v1/orders", produces = APPLICATION_JSON_VALUE)
+@Tag(name = "Orders", description = "Order Management Endpoints")
 public class OrderController {
 
     private final OrderCommandService orderCommandService;

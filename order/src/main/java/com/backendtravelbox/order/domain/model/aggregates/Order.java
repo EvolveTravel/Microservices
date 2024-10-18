@@ -7,7 +7,7 @@ import org.apache.logging.log4j.util.Strings;
 import org.springframework.data.domain.AbstractAggregateRoot;
 
 @Entity
-@Table(name = "Order")
+@Table(name = "Orders")
 public class Order extends AbstractAggregateRoot {
 
     @Id

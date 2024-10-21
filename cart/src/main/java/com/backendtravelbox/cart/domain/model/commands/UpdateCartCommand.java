@@ -4,4 +4,5 @@ public record UpdateCartCommand (Long id,
                                  String product,
                                  String productQuantity,
                                  String cartTotal){
+
 }

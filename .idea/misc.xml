@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/admin-microservices" />
-    <file type="web" url="file://$PROJECT_DIR$/api-gateway" />
-    <file type="web" url="file://$PROJECT_DIR$/cart" />
-    <file type="web" url="file://$PROJECT_DIR$/config-service" />
-    <file type="web" url="file://$PROJECT_DIR$/eureka-service" />
-    <file type="web" url="file://$PROJECT_DIR$/order" />
-    <file type="web" url="file://$PROJECT_DIR$/product" />
-    <file type="web" url="file://$PROJECT_DIR$/trip" />
-    <file type="web" url="file://$PROJECT_DIR$/user" />
+    <file type="web" url="file://$PROJECT_DIR$" />
   </component>
-  <component name="ProjectRootManager">
-    <output url="file://$PROJECT_DIR$/out" />
-  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK" />
 </project>

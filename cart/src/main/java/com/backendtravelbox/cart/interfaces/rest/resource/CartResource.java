@@ -4,4 +4,5 @@ public record CartResource(Long id,
                            String product,
                            String productQuantity,
                            String cartTotal) {
+
 }

@@ -16,7 +16,7 @@ public class UserQueryServiceImpl implements UserQueryService {
 
     private final UserRepository userRepository;
 
-    private final
+    //private final
 
     public UserQueryServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;

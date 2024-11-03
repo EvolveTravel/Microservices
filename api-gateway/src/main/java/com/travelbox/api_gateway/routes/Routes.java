@@ -6,12 +6,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.function.RequestPredicates;
 import org.springframework.web.servlet.function.RouterFunction;
+import org.springframework.web.servlet.function.RouterFunctions;
 import org.springframework.web.servlet.function.ServerResponse;
+
+import java.net.URI;
+
+import static org.springframework.web.servlet.function.RequestPredicates.GET;
+import static org.springframework.web.servlet.function.RouterFunctions.route;
+
 
 @Configuration
 public class Routes {
+
     @Bean
     public RouterFunction<ServerResponse> productServiceRoute() {
+
         return GatewayRouterFunctions.route("product")
                 .route(RequestPredicates.path("/api/v1/products"),
                         HandlerFunctions.http("http://localhost:8091")).build();
@@ -50,5 +59,4 @@ public class Routes {
         return GatewayRouterFunctions.route(routeId).
                 route(RequestPredicates.path(basePath + path), HandlerFunctions.http(url)).build();
     }
-
 }

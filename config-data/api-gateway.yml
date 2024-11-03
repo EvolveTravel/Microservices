@@ -13,33 +13,80 @@ spring:
         locator:
           enabled: true
       routes:
-        - id:
-            product
-          uri:
-            lb://product
+        - id: product
+          uri: lb://product
           predicates:
             - Path=/api/v1/products/**
-        - id:
-            cart
-          uri:
-            lb://cart
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: productServiceCircuitBreaker
+                fallbackUri: forward:/productFallback
+
+        - id: cart
+          uri: lb://cart
           predicates:
             - Path=/api/v1/carts/**
-        - id:
-            user
-          uri:
-            lb://user
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: cartServiceCircuitBreaker
+                fallbackUri: forward:/cartFallback
+
+        - id: user
+          uri: lb://user
           predicates:
             - Path=/api/v1/users/**
-        - id:
-            order
-          uri:
-            lb://order
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: userServiceCircuitBreaker
+                fallbackUri: forward:/userFallback
+
+        - id: orders
+          uri: lb://orders
           predicates:
             - Path=/api/v1/orders/**
-        - id:
-            trip
-          uri:
-            lb://trip
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: orderServiceCircuitBreaker
+                fallbackUri: forward:/orderFallback
+
+        - id: trip
+          uri: lb://trip
           predicates:
             - Path=/api/v1/trips/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: tripServiceCircuitBreaker
+                fallbackUri: forward:/tripFallback
+
+resilience4j.circuitbreaker:
+  instances:
+    productServiceCircuitBreaker:
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
+    cartServiceCircuitBreaker:
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
+    userServiceCircuitBreaker:
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
+    orderServiceCircuitBreaker:
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
+    tripServiceCircuitBreaker:
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000

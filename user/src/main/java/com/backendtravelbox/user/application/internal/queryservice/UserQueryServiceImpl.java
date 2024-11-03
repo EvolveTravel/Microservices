@@ -3,6 +3,7 @@ package com.backendtravelbox.user.application.internal.queryservice;
 import com.backendtravelbox.user.domain.model.aggregates.User;
 import com.backendtravelbox.user.domain.model.queries.GetAllUserQuery;
 import com.backendtravelbox.user.domain.model.queries.GetUserByIdQuery;
+import com.backendtravelbox.user.domain.model.queries.GetUserByUsernameAndPassword;
 import com.backendtravelbox.user.domain.service.UserQueryService;
 import com.backendtravelbox.user.infraestructure.persistance.jpa.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,10 @@ public class UserQueryServiceImpl implements UserQueryService {
     @Override
     public List<User> handle(GetAllUserQuery query) {
         return userRepository.findAll();
+    }
+
+    @Override
+    public Optional<User> handle(GetUserByUsernameAndPassword query) {
+        return userRepository.findByUserNameAndPassword(query.username(), query.password());
     }
 }

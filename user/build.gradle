@@ -35,6 +35,7 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
 	implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '3.3.3'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'

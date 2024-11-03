@@ -3,6 +3,7 @@ package com.backendtravelbox.user.interfaces.rest;
 import com.backendtravelbox.user.domain.model.commands.DeleteUserCommand;
 import com.backendtravelbox.user.domain.model.queries.GetAllUserQuery;
 import com.backendtravelbox.user.domain.model.queries.GetUserByIdQuery;
+import com.backendtravelbox.user.domain.model.queries.GetUserByUsernameAndPassword;
 import com.backendtravelbox.user.domain.service.UserCommandService;
 import com.backendtravelbox.user.domain.service.UserQueryService;
 import com.backendtravelbox.user.interfaces.rest.resource.CreateUserResource;
@@ -50,6 +51,18 @@ public class UserController {
 
         var userResource = UserResourceFromEntityAssembler.toResourceFromEntity(user.get());
         return new ResponseEntity<>(userResource, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{username}/{password}")
+    public ResponseEntity<UserResource> login(@PathVariable String username, @PathVariable String password) {
+        var getUserByUsernameAndPassword = new GetUserByUsernameAndPassword(username, password);
+        var user = userQueryService.handle(getUserByUsernameAndPassword);
+        if (user.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        var userResource = UserResourceFromEntityAssembler.toResourceFromEntity(user.get());
+        return ResponseEntity.ok(userResource);
     }
 
     @GetMapping

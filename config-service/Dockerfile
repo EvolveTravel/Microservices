@@ -8,7 +8,7 @@ VOLUME /tmp
 EXPOSE 8081
 
 # Copiar el archivo .jar generado en Gradle al contenedor
-COPY build/libs/config-service-0.0.1-SNAPSHOT-plain.jar app.jar
+COPY build/libs/config-service-0.0.1-SNAPSHOT.jar app.jar
 
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]

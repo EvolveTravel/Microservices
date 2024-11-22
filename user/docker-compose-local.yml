@@ -1,0 +1,8 @@
+services:
+  user:
+    image: user
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8093:8093

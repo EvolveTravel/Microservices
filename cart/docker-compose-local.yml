@@ -1,0 +1,8 @@
+services:
+  cart:
+    image: cart
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8092:8092

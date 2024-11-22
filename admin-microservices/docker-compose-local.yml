@@ -1,0 +1,8 @@
+services:
+  admin-microservices:
+    image: admin-microservices
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8086:8086

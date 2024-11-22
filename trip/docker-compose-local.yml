@@ -1,0 +1,8 @@
+services:
+  trip:
+    image: trip
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8095:8095

@@ -1,0 +1,8 @@
+services:
+  config-server:
+    image: confir-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
